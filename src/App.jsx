@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import reactLogo from "./assets/react.svg";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-const Foo = React.lazy(() => import("./Foo"));
+// const Foo = React.lazy(() => import("./Foo"));
 
 function App() {
   return (
@@ -19,9 +19,9 @@ function App() {
           </div>
           <h1>Vite + React</h1>
           <div className="card">
-            <Link to="/foo">
+            {/* <Link to="/foo">
               <button>Go to Foo</button>
-            </Link>
+            </Link> */}
             <p>
               Edit <code>src/App.jsx</code> and save to test HMR
             </p>
@@ -29,9 +29,9 @@ function App() {
           <p className="read-the-docs">
             Click on the Vite and React logos to learn more
           </p>
-          <Routes>
+          {/* <Routes>
             <Route path="/foo" element={<Foo />} />
-          </Routes>
+          </Routes> */}
         </div>
       </BrowserRouter>
     </Suspense>
