@@ -12,13 +12,14 @@ export const routes: Array<RouteObject> = [
     children: [
       {
         path: 'foo',
-        async lazy() {
-          const { ErrorBoundary, Foo} = await import('./Foo');
-          return {
-            Component: Foo,
-            ErrorBoundary
-          }
-        }
+        // async lazy() {
+        //   const { ErrorBoundary, Foo} = await import('./Foo');
+        //   return {
+        //     Component: Foo,
+        //     ErrorBoundary
+        //   }
+        // }
+        element: <h1>Old Foo is Gone</h1>
       },
     ],
   },
