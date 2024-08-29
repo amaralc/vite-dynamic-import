@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import reactLogo from "./assets/react.svg";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-const Foo = React.lazy(() => import("./Foo"));
+// const Foo = React.lazy(() => import("./Foo"));
 
 function App() {
   return (
@@ -29,9 +29,9 @@ function App() {
           <p className="read-the-docs">
             Click on the Vite and React logos to learn more
           </p>
-          <Routes>
+          {/* <Routes>
             <Route path="/foo" element={<Foo />} />
-          </Routes>
+          </Routes> */}
         </div>
       </BrowserRouter>
     </Suspense>
