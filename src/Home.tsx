@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Outlet } from "../node_modules/react-router-dom/dist/index";
 
 export const Home = () => {
@@ -11,9 +11,9 @@ export const Home = () => {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        {/* <Link to="/foo">
+        <Link to="/foo">
           <button>Go to Foo</button>
-        </Link> */}
+        </Link>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
