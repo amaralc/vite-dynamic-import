@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
 import { Home } from './Home';
-import { ErrorBoundary } from './ErrorBoundary';
+// import { ErrorBoundary } from './ErrorBoundary';
 
 const Foo = lazy(() => import('./Foo'));
 
@@ -9,7 +9,7 @@ export const routes: Array<RouteObject> = [
   {
     path: '/',
     element: <Home />,
-    errorElement: <ErrorBoundary fallback={<h1>Router Error Boundary</h1>} onError={(error) => console.log(error.message)} />,
+    // errorElement: <ErrorBoundary fallback={<h1>Router Error Boundary</h1>} onError={(error) => console.log(error.message)} />,
     children: [
       {
         path: 'foo',
