@@ -1,9 +1,9 @@
-// import { lazy } from 'react';
+import { lazy } from 'react';
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
 import { Home } from './Home';
 // import { ErrorBoundary } from './ErrorBoundary';
 
-// const Foo = lazy(() => import('./Foo'));
+const Foo = lazy(() => import('./Foo'));
 
 export const routes: Array<RouteObject> = [
   {
@@ -13,7 +13,7 @@ export const routes: Array<RouteObject> = [
     children: [
       {
         path: 'foo',
-        element: <h1>Original foo Was Removed</h1>,
+        element: <Foo />,
       },
     ],
   },
