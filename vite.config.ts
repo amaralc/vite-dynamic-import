@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'node:path'
 
 
-const deriveFileNameFromChunkInfo = (chunkInfo) => {
+const deriveFileNameFromChunkInfo = (chunkInfo: { facadeModuleId: string | null }): string => {
   if (!chunkInfo.facadeModuleId) {
     return 'assets/js/[name]-[hash].js';
   }
