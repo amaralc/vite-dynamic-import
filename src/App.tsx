@@ -6,7 +6,7 @@ import { ErrorBoundary } from "./ErrorBoundary";
 
 function App() {
   return (
-    <ErrorBoundary fallback={<div>Error</div>}>
+    <ErrorBoundary fallback={<div>Error</div>} onError={(error, errorInfo) => console.log(error, errorInfo)}>
       <Suspense fallback={<div>Loading...</div>}>
         <RouterProvider router={browserRouter} />
       </Suspense>
