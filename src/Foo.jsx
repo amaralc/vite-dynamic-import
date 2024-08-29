@@ -1,3 +1,3 @@
-const Foo = () => <p>Foo2</p>;
+const Foo = () => <p>Foo V1</p>;
 
 export default Foo;
