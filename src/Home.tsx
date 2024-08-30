@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Outlet } from "../node_modules/react-router-dom/dist/index";
+// import { Outlet } from "../node_modules/react-router-dom/dist/index";
 
 export const Home = () => {
   return (
@@ -21,7 +21,7 @@ export const Home = () => {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 };
