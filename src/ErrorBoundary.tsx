@@ -24,7 +24,7 @@ class ErrorBoundary extends React.Component<
 
   render() {
     if (this.state.hasError) {
-      setTimeout(() => window.location.replace("/"), 1000)
+      setTimeout(() => window.location.replace("/"), 1000);
       return <h1>Something went wrong. Module not found (404).</h1>;
     }
 
