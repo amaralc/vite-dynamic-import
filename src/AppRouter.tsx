@@ -1,24 +1,19 @@
 // import { lazy } from 'react';
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
 import { Home } from './Home';
-import { ErrorBoundary as GlobalErrorBoundary } from './ErrorBoundary';
+import { ErrorBoundary } from './ErrorBoundary';
+
+// const Foo = lazy(() => import('./Foo'));
 
 export const routes: Array<RouteObject> = [
   {
     path: '/',
     element: <Home />,
-    hasErrorBoundary: true,
-    ErrorBoundary: GlobalErrorBoundary,
+    errorElement: <ErrorBoundary fallback={<h1>Error Caught by Router Error Boundary</h1>} onError={(error) => console.log(error.message)} />,
     children: [
       {
         path: 'foo',
-        async lazy() {
-          const { ErrorBoundary, Foo} = await import('./Foo');
-          return {
-            Component: Foo,
-            ErrorBoundary
-          }
-        }
+        element: <h1>Old foo is gone</h1>,
       },
     ],
   },

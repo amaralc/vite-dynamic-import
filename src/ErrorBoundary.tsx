@@ -15,6 +15,7 @@ interface IErrorInfo {
 }
 
 interface IErrorBoundaryProps {
+  fallback: React.ReactNode;
   children?: React.ReactNode;
   onError?: (error: Error, errorInfo: IErrorInfo) => void;
 }
@@ -50,14 +51,14 @@ export class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+      return this.props.fallback;
     }
 
     try {
       return this.props.children;
     } catch (error) {
       console.log(error);
-      return <h1>Something went wrong.</h1>;
+      return this.props.fallback;
     }
   }
 }
