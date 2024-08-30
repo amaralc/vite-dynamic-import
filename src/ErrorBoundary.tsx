@@ -1,64 +1,31 @@
-/**
- * Error boundaries require the use of static getDerivedStateFromError and must be created as class components
- *
- * @see https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary
- *
- * Alternatively we could also use the following lib, as recommended by React docs:
- *
- * @see https://github.com/bvaughn/react-error-boundary
- */
+import React from 'react';
 
-import React from "react";
-
-interface IErrorInfo {
-  componentStack: any;
+interface ErrorBoundaryState {
+  hasError: boolean;
 }
 
-interface IErrorBoundaryProps {
-  fallback: React.ReactNode;
-  children?: React.ReactNode;
-  onError?: (error: Error, errorInfo: IErrorInfo) => void;
-}
-
-export class ErrorBoundary extends React.Component {
-  props: IErrorBoundaryProps;
-  state: { hasError: boolean };
-
-  constructor(props: IErrorBoundaryProps) {
+class ErrorBoundary extends React.Component<React.PropsWithChildren<{}>, ErrorBoundaryState> {
+  constructor(props: React.PropsWithChildren<{}>) {
     super(props);
-    this.props = props;
     this.state = { hasError: false };
   }
 
   static getDerivedStateFromError(error: Error) {
-    // Update state so the next render will show the fallback UI.
-    console.log(error);
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: IErrorInfo) {
-    if (this.props.onError) {
-      this.props.onError(error, errorInfo);
-    }
-    // Example "componentStack":
-    //   in ComponentThatThrows (created by App)
-    //   in ErrorBoundary (created by App)
-    //   in div (created by App)
-    //   in App
-    // logErrorToMyService(error, info.componentStack);
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('Error caught by ErrorBoundary:', error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return this.props.fallback;
+        window.location.reload()
+      return <h1>Something went wrong. Module not found (404).</h1>;
     }
 
-    try {
-      return this.props.children;
-    } catch (error) {
-      console.log(error);
-      return this.props.fallback;
-    }
+    return this.props.children;
   }
 }
+
+export default ErrorBoundary;
